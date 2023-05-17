@@ -47,21 +47,17 @@ map.on('style.load', () => {
     );
 });
 
-map.on('load', () => {
-    // Add a data source containing GeoJSON data.
+map.on('style.load', (
     map.addSource('subway_routes', {
-    'type': 'geojson',
-    'data': '.data/routes_subway.geojson'
-    })
-})
-
-map.addLayer({
-    'id': 'fill-subway_routes',
-    'type': 'line',
-    'source': 'subway_routes',
-    'layout': {},
-    'paint': {
-    'line-color': '#0080ff',
-    'line-width': 0.5
-    }
-    });
+        'type': 'geojson',
+        'data': '.data/routes_subway.geojson'
+    }), map.addLayer({
+        'id': 'fill-subway_routes',
+        'type': 'line',
+        'source': 'subway_routes',
+        'layout': {},
+        'paint': {
+            'line-color': '#0080ff',
+            'line-width': 0.5
+        }
+    })))
