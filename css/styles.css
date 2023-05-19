@@ -1,33 +1,23 @@
 #map {
-    width: 100%;
-    height: 100%;
-  }
-  
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  #map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  .sidebar {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 450px;
-    z-index: 10;
-    background: #f0efef;
-    padding: 25px;
-    box-sizing: border-box;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-    border: 4px solid #313131;
-    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 10px;
-    }
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.sidebar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 450px;
+  z-index: 10;
+  background: #a7a4a4;
+  padding: 25px;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  border: 4px solid #313131;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
