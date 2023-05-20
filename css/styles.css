@@ -8,8 +8,8 @@
 .sidebar {
   position: absolute;
   top: 10px;
-  left: 10px;
-  width: 450px;
+  left: 25px;
+  width: 400px;
   z-index: 10;
   background: #a7a4a4;
   padding: 25px;
@@ -17,7 +17,7 @@
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 15px;
   line-height: 1.5;
-  border: 4px solid #313131;
-  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.5);
+  border: 0px solid #313131;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 10%);
   margin-bottom: 10px;
 }

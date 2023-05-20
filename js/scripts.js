@@ -2,8 +2,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZXZhbm1hbmNpbmkiLCJhIjoiY2xnNXE5d2NlMDJxazNxc
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v11',
-    center: [-73.91770592106197, 40.70528610017079],
-    zoom: 10.75
+    center: [-73.97, 40.70],
+    zoom: 10
 })
 
 map.on('style.load', function () {
@@ -14,10 +14,10 @@ map.on('style.load', function () {
         'id': 'fill-localbus_routes',
         'type': 'line',
         'source': 'localbus_routes',
-        'layout': {'visibility': 'none'},
+        'layout': { 'visibility': 'none' },
         'paint': {
-            'line-color': '#b6d9b8',
-            'line-width': 3
+            'line-color': '#a0d568',
+            'line-width': 0.5
         }
     }), map.on('click', 'fill-localbus_routes', (e) => {
         new mapboxgl.Popup()
@@ -33,10 +33,10 @@ map.on('style.load', function () {
         'id': 'fill-subway_routes',
         'type': 'line',
         'source': 'subway_routes',
-        'layout': {'visibility': 'visible'},
+        'layout': { 'visibility': 'visible' },
         'paint': {
-            'line-color': '#09356b',
-            'line-width': 3
+            'line-color': '#4fc1e8',
+            'line-width': 1
         }
     }), map.on('click', 'fill-subway_routes', (e) => {
         new mapboxgl.Popup()
@@ -51,10 +51,10 @@ map.on('style.load', function () {
         'id': 'fill-routes_expressbus',
         'type': 'line',
         'source': 'expressbus_routes',
-        'layout': {'visibility': 'none'},
+        'layout': { 'visibility': 'none' },
         'paint': {
-            'line-color': '#6b095c',
-            'line-width': 3
+            'line-color': '#AC92EB',
+            'line-width': 1
         }
     }), map.on('click', 'fill-routes_expressbus', (e) => {
         new mapboxgl.Popup()
@@ -69,10 +69,10 @@ map.on('style.load', function () {
         'id': 'fill-routes_lirr',
         'type': 'line',
         'source': 'lirr_routes',
-        'layout': {'visibility': 'none'},
+        'layout': { 'visibility': 'none' },
         'paint': {
-            'line-color': '#ff0004',
-            'line-width': 3
+            'line-color': '#ffce54',
+            'line-width': 1
         }
     }), map.on('click', 'fill-routes_lirr', (e) => {
         new mapboxgl.Popup()
@@ -88,9 +88,9 @@ map.on('style.load', function () {
         'id': 'fill-routes_metronorth',
         'type': 'line',
         'source': 'mnr_routes',
-        'layout': {'visibility': 'none'},
+        'layout': { 'visibility': 'none' },
         'paint': {
-            'line-color': '#e1ff00',
+            'line-color': '#ed5564',
             'line-width': 1
         }
     }), map.on('click', 'fill-routes_metronorth', (e) => {
@@ -106,10 +106,10 @@ map.on('style.load', function () {
             'id': 'fill-local-bus-stops',
             'type': 'circle',
             'source': 'local-bus-stops',
-            'layout': {'visibility': 'none'},
+            'layout': { 'visibility': 'none' },
             'paint': {
                 'circle-radius': 1,
-                'circle-color': '#B42222'
+                'circle-color': '#000000'
             }
         }), map.on('click', 'fill-local-bus-stops', (e) => {
             new mapboxgl.Popup()
@@ -124,7 +124,7 @@ map.on('style.load', function () {
             'id': 'fill-express-bus-stops',
             'type': 'circle',
             'source': 'express-bus-stops',
-            'layout': {'visibility': 'none'},
+            'layout': { 'visibility': 'none' },
             'paint': {
                 'circle-radius': 1,
                 'circle-color': '#B42222'
@@ -136,24 +136,24 @@ map.on('style.load', function () {
                 .addTo(map)
         })
 
-        map.addSource('LIRR_stations', {
-            'type': 'geojson',
-            'data': 'data/stops_lirr.geojson'
-        }), map.addLayer({
-            'id': 'fill-LIRR_stations',
-            'type': 'circle',
-            'source': 'LIRR_stations',
-            'layout': {'visibility': 'none'},
-            'paint': {
-                'circle-radius': 1,
-                'circle-color': '#B42222',
-                'circle-opacity': .5
-            }
-        }), map.on('click', 'fill-LIRR_stations', (e) => {
-            new mapboxgl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML(e.features[0].properties.stop_name)
-                .addTo(map)
+    map.addSource('LIRR_stations', {
+        'type': 'geojson',
+        'data': 'data/stops_lirr.geojson'
+    }), map.addLayer({
+        'id': 'fill-LIRR_stations',
+        'type': 'circle',
+        'source': 'LIRR_stations',
+        'layout': { 'visibility': 'none' },
+        'paint': {
+            'circle-radius': 1,
+            'circle-color': '#B42222',
+            'circle-opacity': .5
+        }
+    }), map.on('click', 'fill-LIRR_stations', (e) => {
+        new mapboxgl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(e.features[0].properties.stop_name)
+            .addTo(map)
 
     }), map.addSource('MNR_stations', {
         'type': 'geojson',
@@ -162,7 +162,7 @@ map.on('style.load', function () {
         'id': 'fill-MNR_stations',
         'type': 'circle',
         'source': 'MNR_stations',
-        'layout': {'visibility': 'none'},
+        'layout': { 'visibility': 'none' },
         'paint': {
             'circle-radius': 4,
             'circle-color': '#96b9f2'
@@ -174,75 +174,104 @@ map.on('style.load', function () {
             .addTo(map)
 
 
-}) , map.addSource('bayside_iso', {
-    'type': 'geojson',
-    'data': 'data/bayside_isochrone.geojson'
-}), map.addLayer({
-    'id': 'fill-bayside',
-    'type': 'fill',
-    'source': 'bayside_iso',
-    'layout': {'visibility': 'none'},
-    paint: {
-        'fill-color': '#FF0000',
-        'fill-opacity': 0.5
-      }
-})
-, map.addSource('marinepark_iso', {
-    'type': 'geojson',
-    'data': 'data/marinepark_isochrone.geojson'
-}), map.addLayer({
-    'id': 'fill-marine',
-    'type': 'fill',
-    'source': 'marinepark_iso',
-    'layout': {'visibility': 'none'},
-    paint: {
-        'fill-color': '#4287f5',
-        'fill-opacity': .5
-      }
-})
-, map.addSource('maspeth_iso', {
-    'type': 'geojson',
-    'data': 'data/maspeth_isochrone.geojson'
-}), map.addLayer({
-    'id': 'fill-maspeth',
-    'type': 'fill',
-    'source': 'maspeth_iso',
-    'layout': {'visibility': 'none'},
-    paint: {
-        'fill-color': '#c6db07',
-        'fill-opacity': .5
-      }
-})
+    }), map.addSource('bayside_iso', {
+        'type': 'geojson',
+        'data': 'data/bayside_isochrone.geojson'
+    }), map.addLayer({
+        'id': 'fill-bayside',
+        'type': 'fill',
+        'source': 'bayside_iso',
+        'layout': { 'visibility': 'none' },
+        paint: {
+            'fill-color': '#fcfcd2',
+            'fill-opacity': 0.25
+        }
+    })
+        , map.addSource('marinepark_iso', {
+            'type': 'geojson',
+            'data': 'data/marinepark_isochrone.geojson'
+        }), map.addLayer({
+            'id': 'fill-marine',
+            'type': 'fill',
+            'source': 'marinepark_iso',
+            'layout': { 'visibility': 'none' },
+            paint: {
+                'fill-color': '#fcfcd2',
+                'fill-opacity': .25
+            }
+        })
+        , map.addSource('maspeth_iso', {
+            'type': 'geojson',
+            'data': 'data/maspeth_isochrone.geojson'
+        }), map.addLayer({
+            'id': 'fill-maspeth',
+            'type': 'fill',
+            'source': 'maspeth_iso',
+            'layout': { 'visibility': 'none' },
+            paint: {
+                'fill-color': '#fcfcd2',
+                'fill-opacity': .25
+            }
+        })
 })
 
 $('#fly-to-bayside').on('click', function () {
     map.flyTo({
-        center: [-73.76430045862422, 40.771418928210714],
-        zoom: 12.5 
-    },
-    function showLayer() {
-        map.setLayoutProperty('fill-bayside', 'visibility', 'visible')
-    
+        center: [-73.875, 40.75],
+        zoom: 11.5
+    }),
+        map.setLayoutProperty('fill-subway_routes', 'visibility', 'none'),
+        map.setLayoutProperty('fill-bayside', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-marine', 'visibility', 'none'),
+        map.setLayoutProperty('fill-maspeth', 'visibility', 'none'),
+        map.setLayoutProperty('fill-localbus_routes', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-routes_expressbus', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-routes_lirr', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-routes_metronorth', 'visibility', 'visible')
 })
 
 $('#fly-to-marine').on('click', function () {
     map.flyTo({
-        center: [-73.9335657922829, 40.61153404163023],
-        zoom: 12.5
-    })
+        center: [-73.97, 40.627],
+        zoom: 11.5
+    }),
+        map.setLayoutProperty('fill-subway_routes', 'visibility', 'none'),
+        map.setLayoutProperty('fill-marine', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-maspeth', 'visibility', 'none'),
+        map.setLayoutProperty('fill-bayside', 'visibility', 'none'),
+        map.setLayoutProperty('fill-localbus_routes', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-subway_routes', 'visibility', 'none'),
+        map.setLayoutProperty('fill-routes_expressbus', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-routes_lirr', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-routes_metronorth', 'visibility', 'visible')
 })
 
 $('#fly-to-maspeth').on('click', function () {
     map.flyTo({
-        center: [-73.90655308825586, 40.72923636097061],
-        zoom: 12.5
-    })
+        center: [-73.95655308825586, 40.72923636097061],
+        zoom: 11.5
+    }),
+        map.setLayoutProperty('fill-subway_routes', 'visibility', 'none'),
+        map.setLayoutProperty('fill-maspeth', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-marine', 'visibility', 'none'),
+        map.setLayoutProperty('fill-bayside', 'visibility', 'none'),
+        map.setLayoutProperty('fill-localbus_routes', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-routes_expressbus', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-routes_lirr', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-routes_metronorth', 'visibility', 'visible')
 })
 
 $('#fly-to-city').on('click', function () {
     map.flyTo({
-        center: [-73.91770592106197, 40.70528610017079],
-        zoom: 10.5 
-    })
-})
+        center: [-73.97, 40.70],
+        zoom: 10
+    }),
+        map.setLayoutProperty('fill-subway_routes', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-maspeth', 'visibility', 'none'),
+        map.setLayoutProperty('fill-marine', 'visibility', 'none'),
+        map.setLayoutProperty('fill-bayside', 'visibility', 'none'),
+        map.setLayoutProperty('fill-localbus_routes', 'visibility', 'none'),
+        map.setLayoutProperty('fill-routes_expressbus', 'visibility', 'none'),
+        map.setLayoutProperty('fill-routes_lirr', 'visibility', 'none'),
+        map.setLayoutProperty('fill-routes_metronorth', 'visibility', 'none')
 })
