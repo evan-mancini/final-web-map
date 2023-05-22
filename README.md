@@ -5,6 +5,6 @@ This map examines Bayside, Maspeth, and Marine Park, three neighborhods that bec
 The map initially shows the three neighborhoods in question as well as the subway routes. To use the map, click the bottons in the sidebar to fly to each neighborhood. This removes the subway route layer and adds local bus, express bus, Long Island Rail Road, and Metro-North Railroad routes. The 45-minute transit ischrones are also revealed after flyijng to a neighborhood. You can click the buttons to alternate neighborhoods or click the "return to citywide view" button to resume the map's load state.
 
 Data sources: 
-Transit lines all came from Baruch College's NYC Mass Transit Spatial Layers Archive: https://www.baruch.cuny.edu/confluence/display/geoportal/NYC+Mass+Transit+Spatial+Layers+Archive
+Transit lines all came from <a href="https://www.baruch.cuny.edu/confluence/display/geoportal/NYC+Mass+Transit+Spatial+Layers+Archive">Baruch College's NYC Mass Transit Spatial Layers Archive</a>
 NTAs came from the New York City Department of City Planning: https://www.nyc.gov/site/planning/data-maps/open-data/census-download-metadata.page
 Ischrones came from TravelTime's Isochrone API Playground: https://playground.traveltime.com/isochrones
