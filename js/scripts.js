@@ -1,12 +1,103 @@
+//adding access token, loading map
 mapboxgl.accessToken = 'pk.eyJ1IjoiZXZhbm1hbmNpbmkiLCJhIjoiY2xnNXE5d2NlMDJxazNxcDhyc2g1eGo2eCJ9.9FsLDvuMxvT0C4cWbIsQAw';
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v11',
     center: [-73.97, 40.70],
     zoom: 10
-})
+});
 
+//adding neighborhood labels
+const nabes = {
+    'type': 'FeatureCollection',
+    'features': [
+        {
+            'type': 'Feature',
+            'properties': {
+                'description': "Bayside"
+            },
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-73.7770774, 40.7684351]
+            }
+        },
+        {
+            'type': 'Feature',
+            'properties': {
+                'description': 'Marine Park'
+            },
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-73.9341972, 40.6055793]
+            }
+        },
+        {
+            'type': 'Feature',
+            'properties': {
+                'description': "Maspeth"
+            },
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-73.912637, 40.723158]
+            }
+        }
+
+    ]
+};
+
+//adding all sources and layers on load but only subway routes and neighborhoods are visible
 map.on('style.load', function () {
+    map.addSource('nabes', {
+        'type': 'geojson',
+        'data': nabes
+    }),
+        map.addLayer({
+            'id': 'nabe-labels',
+            'type': 'symbol',
+            'source': 'nabes',
+            'layout': {
+                'text-field': ['get', 'description'],
+                'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+                'text-radial-offset': 0.5,
+                'text-justify': 'auto',
+            },
+            'paint': {
+                'text-color': '#fff',
+                'text-opacity': 1
+            },
+        }),
+        map.addSource('3nabentas', {
+            'type': 'geojson',
+            'data': 'data/ntas.geojson'
+        }),
+        map.addLayer({
+            'id': 'fill-NTAs',
+            'type': 'fill',
+            'source': '3nabentas',
+            'layout': {
+                'visibility': 'visible'
+            },
+            'paint': {
+                'fill-color': '#a0d568',
+                'fill-opacity': 0.5
+            }
+        }), map.addSource('iso_origins', {
+            'type': 'geojson',
+            'data': 'data/isochroneoriginpoints.geojson'
+        }),
+        map.addLayer({
+            'id': 'fill-iso_os',
+            'type': 'circle',
+            'source': 'iso_origins',
+            'layout': {
+                'visibility': 'none'
+            },
+            'paint': {
+                'circle-color': '#ed5564',
+                'circle-opacity': 1
+            }
+        });
+
     map.addSource('localbus_routes', {
         'type': 'geojson',
         'data': 'data/routes_localbus.geojson'
@@ -215,12 +306,15 @@ map.on('style.load', function () {
         })
 })
 
+//adding fly-to buttons, hiding neighboods and subway routes, and revealing bus/rail routes with isochrones
 $('#fly-to-bayside').on('click', function () {
     map.flyTo({
         center: [-73.875, 40.75],
         zoom: 11.5
     }),
         map.setLayoutProperty('fill-subway_routes', 'visibility', 'none'),
+        map.setLayoutProperty('fill-NTAs', 'visibility', 'none'),
+        map.setLayoutProperty('fill-iso_os', 'visibility', 'visible'),
         map.setLayoutProperty('fill-bayside', 'visibility', 'visible'),
         map.setLayoutProperty('fill-marine', 'visibility', 'none'),
         map.setLayoutProperty('fill-maspeth', 'visibility', 'none'),
@@ -236,7 +330,9 @@ $('#fly-to-marine').on('click', function () {
         zoom: 11.5
     }),
         map.setLayoutProperty('fill-subway_routes', 'visibility', 'none'),
+        map.setLayoutProperty('fill-NTAs', 'visibility', 'none'),
         map.setLayoutProperty('fill-marine', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-iso_os', 'visibility', 'visible'),
         map.setLayoutProperty('fill-maspeth', 'visibility', 'none'),
         map.setLayoutProperty('fill-bayside', 'visibility', 'none'),
         map.setLayoutProperty('fill-localbus_routes', 'visibility', 'visible'),
@@ -252,7 +348,9 @@ $('#fly-to-maspeth').on('click', function () {
         zoom: 11.5
     }),
         map.setLayoutProperty('fill-subway_routes', 'visibility', 'none'),
+        map.setLayoutProperty('fill-NTAs', 'visibility', 'none'),
         map.setLayoutProperty('fill-maspeth', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-iso_os', 'visibility', 'visible'),
         map.setLayoutProperty('fill-marine', 'visibility', 'none'),
         map.setLayoutProperty('fill-bayside', 'visibility', 'none'),
         map.setLayoutProperty('fill-localbus_routes', 'visibility', 'visible'),
@@ -261,12 +359,15 @@ $('#fly-to-maspeth').on('click', function () {
         map.setLayoutProperty('fill-routes_metronorth', 'visibility', 'visible')
 })
 
+//adding reset, fly-to citywide button, resuming the load state
 $('#fly-to-city').on('click', function () {
     map.flyTo({
         center: [-73.97, 40.70],
         zoom: 10
     }),
         map.setLayoutProperty('fill-subway_routes', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-NTAs', 'visibility', 'visible'),
+        map.setLayoutProperty('fill-iso_os', 'visibility', 'none'),
         map.setLayoutProperty('fill-maspeth', 'visibility', 'none'),
         map.setLayoutProperty('fill-marine', 'visibility', 'none'),
         map.setLayoutProperty('fill-bayside', 'visibility', 'none'),

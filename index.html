@@ -16,22 +16,44 @@
       <h2>Debunking Transit Deserts</h2>
     </div>
     <div class="description">
-      Areas without access to reliable transit are often called transit deserts. In New York, this usually correlates with subway access, as many consider neighborhoods without subway stations to be transit deserts. However, this common notion assumes that the subway is the only viable form of transit and ignores the extesnive bus and rail systems that serve the city.
+      A <b>transit desert</b> is an area with inadequate public transportation options. In New York, many think of
+      neighborhoods without subway stations as transit deserts. However, this
+      notion assumes that the subway is the only transit mode and ignores the <b> bus </b>and <b> rail </b>
+      systems</b> that serve the city. This map examines <b>Bayside, Marine Park, and Maspeth</b>, three neighborhoods
+      that lack immediate subway access and are often called transit deserts. <b>Click the buttons below to explore
+        them.</b>
     </div>
     <p>
-      This map examines three neighborhoods that are often referred to as transit deserts to take a closer look at the transit that's actually in these communities and also look at how far you can travel in 45 minutes on these non-subway transit routes. The map initially shows the subway network, but by clicking the buttons below, the rest of the transit network is revealed.
+      <button id="fly-to-bayside" class="button-60" role="button">Bayside</button>
+      <button id="fly-to-marine" class="button-60" role="button">Marine Park</button>
+      <button id="fly-to-maspeth" class="button-60" role="button">Maspeth</button>
+      <button id="fly-to-city" class="button-61" role="button">return to citywide view</button>
+    </p>
+    <p>
+      The map initial shows only the subway routes, but by <b>clicking the buttons above</b>, the subway routes are
+      replaced by the bus and rail networks, revealing the forgotten transit network.
+      The map also shows how far you can travel in <b>45 minutes</b> from the center of each neighborhood using only
+      <b>buses</b> and <b>commuter rail</b>. <i>Are these really transit deserts?
     </p>
     <div class="description2">
-      <h4>Are these neighborhoods really transit deserts?</h4>
     </div>
 
-  <button id="fly-to-bayside" class="button-60" role="button">Bayside</button>
-  <button id="fly-to-marine" class="button-60" role="button">Marine Park</button>
-  <button id="fly-to-maspeth" class="button-60" role="button">Maspeth</button>
-  <button id="fly-to-city" class="button-60" role="button">New York City</button>
-
-</div>
-
+    <hr style="height:2px;border-width:0;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)">
+    <div class='legend'>
+      <nav class='legend clearfix'>
+        <nav class='legend clearfix'></nav>
+        <span style='background:#4fc1e8;'></span>
+        <span style='background:#a0d568;'></span>
+        <span style='background:#AC92EB;'></span>
+        <span style='background:#ffce54;'></span>
+        <span style='background:#ed5564;'></span>
+        <label>Subway</label>
+        <label>Local Bus</label>
+        <label>Express Bus</label>
+        <label>Long Island Rail Road</label>
+        <label>Metro-North Railroad</label>
+    </div>
+  </div>
 
   <div id="map"></div>
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.0/mapbox-gl.js"></script>

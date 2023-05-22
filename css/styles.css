@@ -2,22 +2,129 @@
   position: absolute;
   top: 0;
   bottom: 0;
+  left:0; 
+  right: 0%;
   width: 100%;
 }
 
 .sidebar {
   position: absolute;
-  top: 10px;
+  top: 25px;
   left: 25px;
   width: 400px;
   z-index: 10;
-  background: #a7a4a4;
+  background: #e2e1e1;
   padding: 25px;
+  padding-bottom: 40px;
+  padding-top: 0px;
   box-sizing: border-box;
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 15px;
   line-height: 1.5;
-  border: 0px solid #313131;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 10%);
   margin-bottom: 10px;
+  border-radius: 20px;
 }
+
+.button-60 {
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border: 1.25px solid #dbdbdb;
+  border-radius: .375em;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #363636;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1rem;
+  height: 2.5em;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.button-60:active {
+  border-color: #4a4a4a;
+  outline: 0;
+}
+
+.button-60:focus {
+  border-color: #485fc7;
+  background-color: #485fc7;
+  color: #ffffff;
+  outline: 0;
+}
+
+.button-60:hover {
+  border-color: #485fc7;
+}
+
+.button-60:focus:not(:active) {
+  box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
+}
+
+.button-61 {
+  align-items: center;
+  appearance: none;
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: .375em;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #4a4a4a;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1rem;
+  height: 2.5em;
+  width: 340px;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 20px;
+  position: right;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.button-61:active {
+  border-color: #4a4a4a;
+  outline: 0;
+}
+
+.button-61:focus {
+  border-color: #485fc7;
+  background-color: #485fc7;
+  color: #ffffff;
+  outline: 2px;
+}
+
+.button-61:hover {
+  border-color: #485fc7;
+}
+
+.button-61:focus:not(:active) {
+  box-shadow: rgba(201, 201, 203, 0.25) 0 0 0 .125em;
+} 
+
+.legend label,
+.legend span {
+  display:block;
+  float:left;
+  height:15px;
+  width:19.5%;
+  text-align:center;
+  font-size:11.5px;
+  color:black;
+  }
