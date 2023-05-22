@@ -6,5 +6,7 @@ The map initially shows the three neighborhoods in question as well as the subwa
 
 Data sources: 
 Transit lines all came from <a href="https://www.baruch.cuny.edu/confluence/display/geoportal/NYC+Mass+Transit+Spatial+Layers+Archive">Baruch College's NYC Mass Transit Spatial Layers Archive</a>
-NTAs came from the New York City Department of City Planning: https://www.nyc.gov/site/planning/data-maps/open-data/census-download-metadata.page
-Ischrones came from TravelTime's Isochrone API Playground: https://playground.traveltime.com/isochrones
+
+NTAs came from the <a href="https://www.nyc.gov/site/planning/data-maps/open-data/census-download-metadata.page">New York City Department of City Planning</a>
+
+Ischrones came from <a href="https://playground.traveltime.com/isochrones">TravelTime's Isochrone API Playground</a>
