@@ -68,7 +68,7 @@ map.on('style.load', function () {
         }),
         map.addSource('3nabentas', {
             'type': 'geojson',
-            'data': 'data/ntas.geojson'
+            'data': 'data/temptemptemptemp.geojson'
         }),
         map.addLayer({
             'id': 'fill-NTAs',
