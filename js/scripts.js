@@ -79,7 +79,7 @@ map.on('style.load', function () {
             },
             'paint': {
                 'fill-color': '#a0d568',
-                'fill-opacity': 0.499
+                'fill-opacity': .50
             }
         }), map.addSource('iso_origins', {
             'type': 'geojson',
